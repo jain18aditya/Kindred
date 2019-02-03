@@ -25,6 +25,7 @@ public class HAStep {
 	ProductDetails productDetailsPage = new ProductDetails();
 	PaymentPage paymentPage = new PaymentPage();
 	Logger s_logs = LoggerUtil.logger();
+	String email;
 
 	@Given("^Launch browser with url \"([^\"]*)\"$")
 	public void launchBrowser(String url) throws Throwable {
