@@ -22,7 +22,7 @@ Feature: Place online order
 	@smoke
 	Scenario: Search blog using sideBar and select
     Given Launch browser with url "unibet.url"
-		When User serach blog "blog.title"
+		And User serach blog "blog.title" using sidebar
 		Then Searched blog with title "blog.title" should be displayed
 		And verify browser url after search
 		When User select searched blog "blog.title"
@@ -32,7 +32,7 @@ Feature: Place online order
 	Scenario: Search blog using search box and select
     Given Launch browser with url "unibet.url"
 		When open serach box using sidebar
-		And User serach blog "blog.title"
+		And User serach blog "blog.title" using sidebar
 		Then Searched blog with title "blog.title" should be displayed
 		And verify browser url after search
 		When User select searched blog "blog.title"
@@ -42,7 +42,7 @@ Feature: Place online order
 	Scenario: Search blog using search box search button and select
     Given Launch browser with url "unibet.url"
 		When open serach box using sidebar
-		And User serach blog with"blog.title" by using search button
+		And User serach blog with "blog.title" by using search button
 		Then Searched blog with title "blog.title" should be displayed
 		And verify browser url after search
 		When User select searched blog "blog.title"
@@ -52,7 +52,7 @@ Feature: Place online order
 	Scenario: Search blog and select using autosuggest options
     Given Launch browser with url "unibet.url"
 		When open serach box using sidebar
-		And User serach blog with"blog.title" by using autosuggest options
+		And User serach blog with "blog.title" by using autosuggest options
 		Then Searched blog with title "blog.title" should be displayed
 		And verify browser url after search
 		When User select searched blog "blog.title"
@@ -69,13 +69,13 @@ Feature: Place online order
 	Scenario: Search with invalid entry
     Given Launch browser with url "unibet.url"
 		When open serach box using sidebar
-		And User serach blog "invalid.entry" by using search button
+		And User serach blog with "invalid.entry" by using search button
 		Then verify search result
 
 	@smoke
 	Scenario: Search with unicode and special characters
     Given Launch browser with url "unibet.url"
 		When open serach box using sidebar
-		And User serach blog "unicode.characters" by using search button
+		And User serach blog with "unicode.characters" by using search button
 		Then verify search result
     And close the browser

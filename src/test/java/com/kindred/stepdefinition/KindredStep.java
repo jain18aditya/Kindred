@@ -33,58 +33,54 @@ public class KindredStep {
 	}
 	
 	@When("^Register new user$")
-	public void register_new_user() throws Throwable {
+	public void registerNewUser() throws Throwable {
 	}
 
 	@Then("^User info should be displayed correctly$")
-	public void user_info_should_be_displayed_correctly() throws Throwable {
+	public void verifyUserInfo() throws Throwable {
 	}
 
 	@Then("^Sidebar option should be displayed correctly$")
-	public void sidebar_option_should_be_displayed_correctly() throws Throwable {
+	public void verifySidebarOptions() throws Throwable {
 	}
 
-	@When("^User serach blog \"([^\"]*)\"$")
-	public void user_serach_blog(String arg1) throws Throwable {
+	@When("^User serach blog \"([^\"]*)\" using sidebar$")
+	public void serachBlogUsingSidebar(String blogName) throws Throwable {
 	}
 
 	@Then("^Searched blog with title \"([^\"]*)\" should be displayed$")
-	public void searched_blog_with_title_should_be_displayed(String arg1) throws Throwable {
+	public void verifySearchedBlog(String arg1) throws Throwable {
 	}
 
 	@Then("^verify browser url after search$")
-	public void verify_browser_url_after_search() throws Throwable {
+	public void verifyBrowserUrl() throws Throwable {
 	}
 
 	@When("^User select searched blog \"([^\"]*)\"$")
-	public void user_select_searched_blog(String arg1) throws Throwable {
+	public void selectSearchedBlog(String arg1) throws Throwable {
 	}
 
 	@Then("^Blog details should be displayed correctly$")
-	public void blog_details_should_be_displayed_correctly() throws Throwable {
+	public void verifyBlogDetails() throws Throwable {
 	}
 
 	@When("^open serach box using sidebar$")
-	public void open_serach_box_using_sidebar() throws Throwable {
+	public void openSearchBox() throws Throwable {
 	}
 
-	@When("^User serach blog with\"([^\"]*)\" by using search button$")
-	public void user_serach_blog_with_by_using_search_button(String arg1) throws Throwable {
+	@When("^User serach blog with \"([^\"]*)\" by using search button$")
+	public void serachBlogUsingSearchButton(String arg1) throws Throwable {
 	}
 
-	@When("^User serach blog with\"([^\"]*)\" by using autosuggest options$")
-	public void user_serach_blog_with_by_using_autosuggest_options(String arg1) throws Throwable {
+	@When("^User serach blog with \"([^\"]*)\" by using autosuggest options$")
+	public void serachBlogUsingAutosuggest(String arg1) throws Throwable {
 	}
 
 	@When("^clear search box using cross button$")
-	public void clear_search_box_using_cross_button() throws Throwable {
+	public void clearSearchBox() throws Throwable {
 	}
 
 	@Then("^verify search result$")
-	public void verify_search_result() throws Throwable {
-	}
-
-	@When("^User serach blog \"([^\"]*)\" by using search button$")
-	public void user_serach_blog_by_using_search_button(String arg1) throws Throwable {
+	public void verifySearchResult() throws Throwable {
 	}
 }
