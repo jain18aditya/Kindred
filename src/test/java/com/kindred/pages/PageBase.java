@@ -1,11 +1,14 @@
 package com.kindred.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.kindred.base.WebDriverBase;
@@ -34,6 +37,19 @@ public abstract class PageBase extends WebDriverBase {
 	public void click(By locator) {
 		try {
 			findElement(locator).click();
+			log.log(Level.INFO, "Clicked on locator: " + locator);
+		} catch (Throwable t) {
+			log.log(Level.ERROR, "Unable to click" + locator, t);
+			String screenShotName = "ElementNotClickable" + System.currentTimeMillis();
+			WebUIUtil.captureScreenShot(screenShotName);
+			Assert.fail("Unable to Click on locator : " + locator + " , kindly refer screenshot : " + screenShotName);
+		}
+	}
+
+	public void clickJS(WebElement locator) {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) getWebDriver();
+			js.executeScript("arguments[0].click();", locator);
 			log.log(Level.INFO, "Clicked on locator: " + locator);
 		} catch (Throwable t) {
 			log.log(Level.ERROR, "Unable to click" + locator, t);
@@ -116,16 +132,16 @@ public abstract class PageBase extends WebDriverBase {
 		return isDisplayed;
 	}
 	
-	public void hover(By locator){
+	public List<WebElement> findElements(By locator){
+		List<WebElement> elements = new ArrayList<WebElement>();
 		try{
-			  Actions action = new Actions(getWebDriver());			  
-		        action.moveToElement(findElement(locator)).build().perform();
+			elements = getWebDriver().findElements(locator);
 		}catch(Throwable t){
 			log.error(t.getMessage());
-			String screenShotName = "UnableToEnterText" + System.currentTimeMillis();
+			String screenShotName = "UnableToFindElements" + System.currentTimeMillis();
 			WebUIUtil.captureScreenShot(screenShotName);
-			Assert.fail("Unable to hover on locator : " + locator + " , kindly refer screenshot : "+ screenShotName);
+			Assert.fail("Unable to find elements with locator : " + locator + " , kindly refer screenshot : "+ screenShotName);
 		}
-		log.info("Performed mouse hover on "+locator);
+		return elements;
 	}
 }
