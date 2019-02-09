@@ -1,4 +1,5 @@
 # KindredWebTest
+
 Framework Details:
 
 1. Framework is written in Page Object Model where starting point will be Test runner file from where you will trigger tests written in Cucumber feature files.
@@ -27,9 +28,27 @@ CI:
 12. Can be easily linked with CI tool and if required all values can be passed through CI tool itself instead of properties file which may default values in case you opt not to pass through CI.
 
 # Run requirement:
+
 1. Clone this project
 2. Maven will download all the dependencies.
 3. Run tests using following methods:
 	1. Run as either JUnit from runner file (Right click on TestRunner file present in package com.kindred.runner and run as JUnit) (Using IDE)
 	2. Run command prompt and navigate to project folder and run "mvn clean install". (Using command line)
 4. Currently reports will be generated at "ProjectFolder/target".
+
+# Covevred Scenarios
+
+1. Register new user.
+2. Login with existing user.
+3. Verify sidebar
+4. Verify search functionalities
+5. Search blog
+6. Verify header titles.
+7. Clicking blog open the details.
+8. Verify URL after search 
+9. Verify search box is displayed after hitting search through sidebar
+10. Verify close button would clear data present in search box
+11. Verify search functionality after entering in search box and clicking search button.
+12. Verify "No search result" displayed for empty search.
+13. Verify putting unicode characters.
+14. Verify autosuggest functionality for search.
