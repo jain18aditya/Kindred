@@ -1,6 +1,6 @@
 # KindredWebTest
 
-Framework Details:
+## Framework Details:
 
 1. Framework is written in Page Object Model where starting point will be Test runner file from where you will trigger tests written in Cucumber feature files.
 2. Feature files are consist of plain English language steps whose equivalent java code is written in step definition.
@@ -9,21 +9,21 @@ Framework Details:
 5. Now you can select which browser to use for execution you need to pass the same in application.properties file.
 6. Also added codefor login functionality. As of now Register code is commented as captcha can not be handled by selenium but in sandbox environment we can leverage that code.
 
-Logging: 
+##Logging: 
 
 7. Used log4j for gathering logs and log file will be generated at root location. 
 8. Used hooks class of Cucumber to improve the logging.
 
-Screenshot: 
+##Screenshot: 
 
 9. Framework takes snapshots if failed at any point in the suit and store it in "lib > screenshots" folder.
 
-Reports: 
+##Reports: 
 
 10. A very good Cucumber reports are generated under target folder
 11. After integrating with any CI tool it will display a even better report which will have graphs, statistics and tabular reports which can be expended.
 
-CI: 
+##CI: 
 
 12. Can be easily linked with CI tool and if required all values can be passed through CI tool itself instead of properties file which may default values in case you opt not to pass through CI.
 
