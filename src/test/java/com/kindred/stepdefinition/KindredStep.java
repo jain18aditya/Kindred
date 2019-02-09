@@ -44,6 +44,7 @@ public class KindredStep {
 	public void logoutUser() throws Throwable {
 		homePage.expandCloseAccount();
 		loginPage.logout();
+		Assert.assertEquals("Unabble to logout user", true, homePage.isRegisterButtonDisplayed());
 	}
 	
 	@When("^Register new user$")
@@ -56,6 +57,7 @@ public class KindredStep {
 		homePage.expandCloseAccount();
 		Assert.assertEquals("Invalid user name displayed", ConfigUtil.getProperty("first.name")+" "+ConfigUtil.getProperty("last.name"), homePage.getUserName());
 		homePage.expandCloseAccount();
+		homePage.waitTillMyAccountButtonDisabled();
 	}
 
 	@Then("^Sidebar option should be displayed correctly$")

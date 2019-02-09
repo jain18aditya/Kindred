@@ -24,6 +24,10 @@ public class HomePage extends PageBase {
 	
 	//////////////// Consolidate functions//////////////
 
+	public void waitTillMyAccountButtonDisabled() {
+		waitTillElementDisable(myAccount_button);
+	}
+	
 	public void acceptCookie() {
 		if(isDisplayed(cookieAcceptButton)) {
 			click(cookieAcceptButton);
@@ -60,5 +64,10 @@ public class HomePage extends PageBase {
 	public String getUserName() {
 		waitTillElementVisible(userName_label);
 		return getText(userName_label);
+	}
+	
+	public boolean isRegisterButtonDisplayed() {
+		waitTillElementVisible(register_button);
+		return isDisplayed(register_button);
 	}
 }

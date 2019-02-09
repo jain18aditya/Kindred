@@ -10,18 +10,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.kindred.base.WebDriverBase;
 import com.kindred.utils.WebUIUtil;
 
 public abstract class PageBase extends WebDriverBase {
 	static Logger log = Logger.getLogger(PageBase.class);
-
-	public void waitTillElementVisible(By locator, int timeout) {
-		log.log(Level.INFO, "Waiting for locator " + locator);
-		WebDriverWait waitLong = new WebDriverWait(getWebDriver(), timeout);
-		waitLong.until(ExpectedConditions.visibilityOfElementLocated(locator));
-	}
 
 	public WebElement findElement(By locator) {
 		WebElement element = null;
@@ -109,6 +102,12 @@ public abstract class PageBase extends WebDriverBase {
 			log.log(Level.ERROR, "Element not visible");
 		}
 	}
+
+	public void waitTillElementDisable(By locator) {
+		log.log(Level.INFO, "Waiting for locator " + locator);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+
 
 	public void waitUntilElementIsClickable(By locator) {
 		try {
