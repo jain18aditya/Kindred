@@ -11,7 +11,7 @@ public class LoginPage extends PageBase {
 	By login_button = By.xpath("//button[@data-test-name='btn-login']");
 	By logout_button = By.xpath("//span[text()='Log Out']");
 	By userOptions_dropdown = By.xpath("//span[@class='balance-type']");
-	
+
 	///////////////////// Consolidate Methods/////////////////////
 
 	public void launchApplication(String url) {

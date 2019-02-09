@@ -27,6 +27,20 @@ public abstract class PageBase extends WebDriverBase {
 		return element;
 	}
 
+	public List<WebElement> findElements(By locator) {
+		List<WebElement> elements = new ArrayList<WebElement>();
+		try {
+			elements = getWebDriver().findElements(locator);
+		} catch (Throwable t) {
+			log.error(t.getMessage());
+			String screenShotName = "UnableToFindElements" + System.currentTimeMillis();
+			WebUIUtil.captureScreenShot(screenShotName);
+			Assert.fail("Unable to find elements with locator : " + locator + " , kindly refer screenshot : "
+					+ screenShotName);
+		}
+		return elements;
+	}
+
 	public void click(By locator) {
 		try {
 			findElement(locator).click();
@@ -108,7 +122,6 @@ public abstract class PageBase extends WebDriverBase {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
 	}
 
-
 	public void waitUntilElementIsClickable(By locator) {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -129,18 +142,5 @@ public abstract class PageBase extends WebDriverBase {
 		else
 			log.log(Level.INFO, locator + " is not displayed");
 		return isDisplayed;
-	}
-	
-	public List<WebElement> findElements(By locator){
-		List<WebElement> elements = new ArrayList<WebElement>();
-		try{
-			elements = getWebDriver().findElements(locator);
-		}catch(Throwable t){
-			log.error(t.getMessage());
-			String screenShotName = "UnableToFindElements" + System.currentTimeMillis();
-			WebUIUtil.captureScreenShot(screenShotName);
-			Assert.fail("Unable to find elements with locator : " + locator + " , kindly refer screenshot : "+ screenShotName);
-		}
-		return elements;
 	}
 }

@@ -18,7 +18,7 @@ public class KindredStep {
 	HomePage homePage = new HomePage();
 	RegistrationPage registrationPage = new RegistrationPage();
 	BlogDetails blogDetails = new BlogDetails();
-	
+
 	@Given("^Launch browser with url \"([^\"]*)\"$")
 	public void launchBrowser(String url) throws Throwable {
 		loginPage.launchApplication(ConfigUtil.getProperty(url));
@@ -46,7 +46,7 @@ public class KindredStep {
 		loginPage.logout();
 		Assert.assertEquals("Unabble to logout user", true, homePage.isRegisterButtonDisplayed());
 	}
-	
+
 	@When("^Register new user$")
 	public void registerNewUser() throws Throwable {
 		registrationPage.registerUser(getAddressDetails());
@@ -55,7 +55,9 @@ public class KindredStep {
 	@Then("^User info should be displayed correctly$")
 	public void verifyUserInfo() throws Throwable {
 		homePage.expandCloseAccount();
-		Assert.assertEquals("Invalid user name displayed", ConfigUtil.getProperty("first.name")+" "+ConfigUtil.getProperty("last.name"), homePage.getUserName());
+		Assert.assertEquals("Invalid user name displayed",
+				ConfigUtil.getProperty("first.name") + " " + ConfigUtil.getProperty("last.name"),
+				homePage.getUserName());
 		homePage.expandCloseAccount();
 		homePage.waitTillMyAccountButtonDisabled();
 	}
@@ -74,13 +76,15 @@ public class KindredStep {
 
 	@Then("^Searched blog with title \"([^\"]*)\" should be displayed$")
 	public void verifySearchedBlog(String blogName) throws Throwable {
-		Assert.assertEquals("Searched blog not displayed", true, blogDetails.isBlogPresent(ConfigUtil.getProperty(blogName)));
+		Assert.assertEquals("Searched blog not displayed", true,
+				blogDetails.isBlogPresent(ConfigUtil.getProperty(blogName)));
 	}
 
 	@Then("^verify browser url after search$")
 	public void verifyBrowserUrl() throws Throwable {
 		loginPage.getCurrentURL().contains(ConfigUtil.getProperty("blog.title"));
-		Assert.assertEquals("Invalid URL displayed", true, loginPage.getCurrentURL().contains(ConfigUtil.getProperty("blog.title")));
+		Assert.assertEquals("Invalid URL displayed", true,
+				loginPage.getCurrentURL().contains(ConfigUtil.getProperty("blog.title")));
 	}
 
 	@When("^User select searched blog \"([^\"]*)\"$")
@@ -90,7 +94,8 @@ public class KindredStep {
 
 	@Then("^Blog details should be displayed correctly$")
 	public void verifyBlogDetails() throws Throwable {
-		Assert.assertEquals("Invalid blog displayed", ConfigUtil.getProperty("blog.title"), blogDetails.getBlogHeading());
+		Assert.assertEquals("Invalid blog displayed", ConfigUtil.getProperty("blog.title"),
+				blogDetails.getBlogHeading());
 	}
 
 	@When("^open serach box using sidebar$")
@@ -119,8 +124,8 @@ public class KindredStep {
 	public void verifySearchResult() throws Throwable {
 		Assert.assertEquals("Invalid result displayed", "No search results", blogDetails.getEmptyInvalidResultValue());
 	}
-	
-	///////////Consolidated function////////////////
+
+	/////////// Consolidated function////////////////
 	private HashMap<String, String> getAddressDetails() {
 		HashMap<String, String> addressDetails = new HashMap<String, String>();
 		addressDetails.put("firstName", ConfigUtil.getProperty("first.name"));
@@ -136,5 +141,4 @@ public class KindredStep {
 		addressDetails.put("gender", ConfigUtil.getProperty("gender"));
 		return addressDetails;
 	}
-
 }

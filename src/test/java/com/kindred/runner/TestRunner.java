@@ -5,9 +5,11 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "pretty", "html:target/html/cucumber.html", "json:target/html/cucumber.json",},
-		features = {"src/test/resources/features/kindred.feature" }, 
+@CucumberOptions(
+		plugin = {"pretty", "html:target/html/cucumber.html",	"json:target/html/cucumber.json", }, 
+		features = { "src/test/resources/features/kindred.feature" }, 
 		glue = {"com.kindred.stepdefinition", "com.kindred.hooks" },
+		tags = {"@smoke"}, 
 		monochrome = true)
 
 public class TestRunner {

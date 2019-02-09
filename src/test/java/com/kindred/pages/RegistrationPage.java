@@ -25,9 +25,10 @@ public class RegistrationPage extends PageBase {
 	By password_button = By.xpath("//input[@name='password']");
 	By securityAnswer_input = By.xpath("//input[@id='securityAnswer']");
 	By accept_radio = By.xpath("//label[@data-test-name='directMarketing-true']//span[@class='custom-radio']");
-	By termsCondition_checkbox = By.xpath("//label[@data-test-name='termsAndConditionsAcceptDate']/span[@class='custom-checkbox']");
+	By termsCondition_checkbox = By
+			.xpath("//label[@data-test-name='termsAndConditionsAcceptDate']/span[@class='custom-checkbox']");
 	By submit_button = By.xpath("//button[@name='submit-registration']");
-	
+
 	private void selectAddress(HashMap<String, String> userInfo) {
 		waitTillElementVisible(manualAddress_button);
 		waitUntilElementIsClickable(manualAddress_button);
@@ -44,7 +45,7 @@ public class RegistrationPage extends PageBase {
 		waitUntilElementIsClickable(continue_button);
 		click(continue_button);
 	}
-	
+
 	public void registerUser(HashMap<String, String> userInfo) {
 		waitTillElementVisible(register_button);
 		click(register_button);
@@ -53,7 +54,7 @@ public class RegistrationPage extends PageBase {
 		enter(fname_input, userInfo.get("firstName"));
 		enter(lname_input, userInfo.get("lastName"));
 		enter(email_input, userInfo.get("userEmail"));
-		String arr[] = userInfo.get("dob").split("-");  //Format 2-January-2018
+		String arr[] = userInfo.get("dob").split("-"); // Format 2-January-2018
 		Select day = new Select(getWebDriver().findElement(day_input));
 		day.selectByVisibleText(arr[0]);
 		Select month = new Select(getWebDriver().findElement(month_input));

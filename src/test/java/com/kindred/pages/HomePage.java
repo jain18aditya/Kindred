@@ -21,15 +21,15 @@ public class HomePage extends PageBase {
 	By accountExpand_button = By.xpath("//a[contains(@class,'account-box-button')]");
 	By userName_label = By.xpath("//div[@data-test-name='userInfoName']");
 	By myAccount_button = By.xpath("//span[text()='Account']");
-	
+
 	//////////////// Consolidate functions//////////////
 
 	public void waitTillMyAccountButtonDisabled() {
 		waitTillElementDisable(myAccount_button);
 	}
-	
+
 	public void acceptCookie() {
-		if(isDisplayed(cookieAcceptButton)) {
+		if (isDisplayed(cookieAcceptButton)) {
 			click(cookieAcceptButton);
 		}
 	}
@@ -38,7 +38,7 @@ public class HomePage extends PageBase {
 		waitTillElementVisible(sideBarExpand_image);
 		clickJS(findElements(sideBarExpand_image).get(0));
 	}
-	
+
 	public boolean verifySideBardMenu() {
 		waitTillElementVisible(blogHome_link);
 		return isDisplayed(blogHome_link) && isDisplayed(football_link) && isDisplayed(horseRiding_link);
@@ -49,23 +49,23 @@ public class HomePage extends PageBase {
 		enter(searchBlog_input, blogTitle);
 		findElement(searchBlog_input).sendKeys(Keys.ENTER);
 	}
-	
+
 	public boolean isUserLoggedIn() {
 		waitTillElementVisible(mainBalance_label);
 		waitTillElementVisible(bonusBalance_label);
 		return (isDisplayed(mainBalance_label)) && (isDisplayed(bonusBalance_label));
 	}
-	
+
 	public void expandCloseAccount() {
 		waitTillElementVisible(accountExpand_button);
 		click(accountExpand_button);
 	}
-	
+
 	public String getUserName() {
 		waitTillElementVisible(userName_label);
 		return getText(userName_label);
 	}
-	
+
 	public boolean isRegisterButtonDisplayed() {
 		waitTillElementVisible(register_button);
 		return isDisplayed(register_button);
