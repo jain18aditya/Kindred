@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Select;
 
 public class RegistrationPage extends PageBase {
+	
 	By register_button = By.xpath("//span[text()='Register']");
 	By fname_input = By.xpath("//div[@data-test-name='firstName']//input");
 	By lname_input = By.xpath("//input[@id='lastName']");

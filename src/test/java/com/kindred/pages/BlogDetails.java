@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import com.kindred.utils.ConfigUtil;
 
 public class BlogDetails extends PageBase {
+	
 	By blogList_label = By.xpath("//div[@class='qq-Pyd4MklQfqSfWC1B5j']//h1");
 	By blogHeader_label = By.xpath("//h1[@class='_2JIJQ7GO9E4XOiVuXZRAnA']");
 	By searchBox_input = By.xpath("//input[@class='_3Hr3qONzU09D2EpcszWrzd']");
@@ -16,6 +17,7 @@ public class BlogDetails extends PageBase {
 	By emptyInvalidResult = By.xpath("//h1[@class='_3j1YMd3zjL1xNt87XF8hqO']");
 
 	/////////////////////// Consolidated functions///////////////////////
+
 	public boolean isBlogPresent(String blogName) {
 		List<WebElement> blogList = new ArrayList<WebElement>();
 		waitTillElementVisible(blogList_label);

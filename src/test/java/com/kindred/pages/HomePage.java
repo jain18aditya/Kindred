@@ -5,9 +5,6 @@ import org.openqa.selenium.Keys;
 
 public class HomePage extends PageBase {
 
-	By cookieSettings = By.xpath("//a[@id='CybotCookiebotDialogBodyButtonDetails']");
-	By cookieDeclaration = By.xpath("//a[@id='CybotCookiebotDialogDetailBodyContentTabsOverview']");
-	By cookieAbout = By.xpath("//a[@id='CybotCookiebotDialogDetailBodyContentTabsAbout']");
 	By cookieAcceptButton = By.xpath("//a[@id='CybotCookiebotDialogBodyButtonAccept']");
 	By register_button = By.xpath("//span[text()='Register']");
 	By sideBarExpand_image = By.xpath("//a[@class='_32MnHnqDy7abNV8KbR66fS']/div/i");
@@ -15,7 +12,6 @@ public class HomePage extends PageBase {
 	By football_link = By.xpath("//span[text()='Football']");
 	By horseRiding_link = By.xpath("//span[text()='Horse Racing']");
 	By searchBlog_input = By.xpath("//input[@placeholder='Search in blog']");
-	By countryselector_button = By.xpath("//div[@class='widget country-selector header']");
 	By mainBalance_label = By.xpath("//span[@data-test-name='balance-cash-amount']");
 	By bonusBalance_label = By.xpath("//span[@data-test-name='balance-bonus-amount']");
 	By accountExpand_button = By.xpath("//a[contains(@class,'account-box-button')]");
